@@ -1,0 +1,41 @@
+.folder{
+    width: 100%;
+    max-width: 200px;
+    cursor: pointer;
+    display: flex;
+    background-color: rgb(91, 100, 107);
+    padding: 5px;
+    color: #fff;
+    justify-content: space-between;
+    margin-bottom: 1px;
+}
+.folder-content{
+    margin-left: 10px;
+    background-color: rgb(117, 138, 155);
+    width: 100%;
+    max-width: 200px;
+    border: 1px solid rgb(91, 100, 107);
+}
+.file{
+    background-color: rgba(47, 66, 80, 0.329);
+    cursor: pointer;
+    display: flex;
+    padding: 5px;
+    color: #fff;
+    width: 100%;
+    max-width: 200px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.folder__add span{
+    border: 1px solid #fff;
+    font-size: 12px;
+    display: inline-block;
+    padding: 2px;
+    margin-left: 1px;
+}
+.new-item {
+    display: flex;
+    margin-left: 10px;
+}

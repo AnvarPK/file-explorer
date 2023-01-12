@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Folder from './components/Folder';
+import explorerdata from './data/explorerData';
+import { useExplorer } from './useHooks/useExplorer';
 
 function App() {
+  const [explorerData, setExplorerData] = useState(explorerdata);
+  const { insertNode, removeNode } = useExplorer();
+
+  const nodeHnadlers = (handleType, ...rest) => {
+    switch (handleType) {
+      case 'addNode':
+        let newData = insertNode(explorerData, ...rest);
+        setExplorerData(newData);
+        break;
+      case 'removeNode':
+        setExplorerData(removeNode(explorerData, ...rest));
+        break;
+      default:
+        break
+    }
+
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Folder nodeHnadlers={nodeHnadlers} data={explorerData} isRoot />
     </div>
   );
 }
